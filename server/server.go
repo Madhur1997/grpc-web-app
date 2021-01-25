@@ -9,6 +9,7 @@ import (
 	"grpc-web-app/calculatorpb"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 type server struct{}
@@ -32,8 +33,8 @@ func main() {
 
 	s := grpc.NewServer()
 	calculatorpb.RegisterCalculatorServer(s, &server{})
+	reflection.Register(s)
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("Error while serving : %v", err)
 	}
-
 }
