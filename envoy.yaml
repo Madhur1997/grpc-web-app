@@ -43,12 +43,12 @@ static_resources:
     type: logical_dns
     http2_protocol_options: {}
     lb_policy: round_robin
-        load_assignment:
+    load_assignment:
       cluster_name: cluster_0
       endpoints:
         - lb_endpoints:
             - endpoint:
                 address:
                   socket_address:
-                    address: node-server
-                    port_value: 9090  
+                    address: grpc-calculator-ctr
+                    port_value: 50551
