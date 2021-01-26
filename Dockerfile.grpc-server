@@ -1,0 +1,12 @@
+FROM go_ubuntu
+
+WORKDIR /root/
+
+RUN mkdir grpc-web-app && cd grpc-web-app
+
+COPY . . 
+
+EXPOSE 50551
+EXPOSE 8080
+
+CMD go run server.go
